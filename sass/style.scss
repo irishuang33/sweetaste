@@ -41,13 +41,28 @@
 		}
 	}
 }
+body {
+	padding-top: 89px;
+	@include breakpoint(970px) {
+		padding-top: 100px;
+	};
+}
 nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
 	line-height: 1;
+	background-color: $white-color;
+	z-index: 99999;
 	> .container {
 		@extend %flex-center-between;
 		position: relative;
 		padding-top: 34px;
 		padding-bottom: 34px;
+		border-bottom: 1px solid;
+		border-bottom-color: transparent;
+		@include transition(all 0.3s);
 		@include breakpoint(max-width 969px) {
 			padding-left: 25px;
 			padding-right: 25px;
@@ -55,6 +70,17 @@ nav {
 		@include breakpoint(970px) {
 			padding-top: 30px;
 			padding-bottom: 30px;
+		}
+	}
+	&.scroll {
+		> .container {
+			padding-top: 20px;
+			padding-bottom: 20px;
+			border-bottom-color: $lighten-green-color;
+			@include breakpoint(970px) {
+				padding-top: 25px;
+				padding-bottom: 25px;
+			}
 		}
 	}
 	.ham {
@@ -209,6 +235,45 @@ header {
 				}
 			}
 		}
+		.h2 {
+			position: absolute;
+			top: 30px;
+			right: 30px;
+			color: $main-color;
+			font-size: 22.5px;
+			font-weight: 700;
+			line-height: 1.5;
+			letter-spacing: 0.3em;
+			-webkit-writing-mode: vertical-rl;
+			writing-mode: vertical-rl;
+			@include breakpoint(970px) {
+				top: 40px;
+				right: 40px;
+				margin-bottom: -0.5em;
+				font-size: 34px;
+				line-height: 1.789473684210526;
+			}
+			span {
+				display: block;
+				@include breakpoint(970px) {
+					display: table;
+				}
+				i {
+					letter-spacing: normal;
+					font-style: normal;
+				}
+				sup {
+					top: -0.25em;
+					left: 0.45em;
+					@include breakpoint(970px) {
+						left: 0.5em;
+					}
+				}
+				+ span {
+					padding-top: 0.5em;
+				}
+			}
+		}
 	}
 	ul.select-btn {
 		@extend %list-reset;
@@ -342,8 +407,9 @@ footer {
 				margin: 0;
 				padding: 16px 20px 16px 64px;
 				line-height: 24px;
-				border: 0;
 				background-color: $lighten-green-color;
+				border: 0;
+				@include border-radius(0);
 				@include breakpoint(970px) {
 					width: 316px;
 				}
@@ -793,8 +859,11 @@ section {
 						color: $main-color;
 						border: solid $lighten-green-color;
 						border-width: 0 1px 1px;
-						&.active, &:hover {
+						&.active {
 							background-color: $lighten-green-color;
+						}
+						&:hover {
+							background-color: $yellow-color;
 						}
 					}
 				}
@@ -893,16 +962,18 @@ section {
 						margin: 0;
 						padding: 16px 20px 16px 64px;
 						line-height: 24px;
-						border: 0;
 						background-color: $lighten-green-color;
+						border: 0;
+						@include border-radius(0);
 					}
 					&[type*='checkbox'] {
 						width: 16px;
 						height: 16px;
 						margin: 0 8px 0 0;
 						padding: 0;
-						border: 0;
 						background-color: $white-color;
+						border: 0;
+						@include border-radius(0);
 					}
 					&[type*='submit'] {
 						@extend %submit;

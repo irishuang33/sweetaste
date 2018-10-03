@@ -130,6 +130,7 @@ $iPadDisplay: 768px 1024px;
 	text-align: center;
 	background-color: $yellow-color;
 	border: 0;
+	@include border-radius(0);
 	@include transition(all 0.3s);
 	&:hover {
 		background-color: $lighten-green-color;
