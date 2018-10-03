@@ -12,16 +12,30 @@ $(window).on('load', function () {
 	imgResize();
 });
 $(document).ready(function() {
+	var width = $(window).width();
 	$(window).resize(function () {
 		imgResize();
+	});
+	$(window).scroll(function(){
+		if ($("nav").offset().top > 100) {
+			$("nav").addClass("scroll");
+		} else {
+			$("nav").removeClass("scroll");
+		}
 	});
 	$("i.collect").click(function(){
 		$(this).toggleClass("icon-heart-outlined icon-heart");
 	});
 	$(".ham").click(function(){
 		$(this).toggleClass("active");
+		$(this).parent().parent().removeClass("scroll");
 		$(".menu").slideToggle();
 	});
+	if (width < 970) {
+		$(".product .title").click(function(){
+			$(this).siblings().slideToggle();
+		});
+	}
 	$('.tab li').click(function () {
 		var tabIndex = $(this).index();
 		$(this).addClass('active').siblings('.active').removeClass('active');
