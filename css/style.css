@@ -589,14 +589,14 @@ nav {
   width: 100%;
   line-height: 1;
   background-color: #fff;
+  border-bottom: 1px solid;
+  border-bottom-color: transparent;
   z-index: 99999;
 }
 nav > .container {
   position: relative;
   padding-top: 34px;
   padding-bottom: 34px;
-  border-bottom: 1px solid;
-  border-bottom-color: transparent;
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
   -webkit-transition: all 0.3s;
@@ -614,10 +614,12 @@ nav > .container {
     padding-bottom: 30px;
   }
 }
+nav.scroll {
+  border-bottom-color: #EAF0ED;
+}
 nav.scroll > .container {
   padding-top: 20px;
   padding-bottom: 20px;
-  border-bottom-color: #EAF0ED;
 }
 @media (min-width: 970px) {
   nav.scroll > .container {

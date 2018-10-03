@@ -54,14 +54,14 @@ nav {
 	width: 100%;
 	line-height: 1;
 	background-color: $white-color;
+	border-bottom: 1px solid;
+	border-bottom-color: transparent;
 	z-index: 99999;
 	> .container {
 		@extend %flex-center-between;
 		position: relative;
 		padding-top: 34px;
 		padding-bottom: 34px;
-		border-bottom: 1px solid;
-		border-bottom-color: transparent;
 		@include transition(all 0.3s);
 		@include breakpoint(max-width 969px) {
 			padding-left: 25px;
@@ -73,10 +73,10 @@ nav {
 		}
 	}
 	&.scroll {
+		border-bottom-color: $lighten-green-color;
 		> .container {
 			padding-top: 20px;
 			padding-bottom: 20px;
-			border-bottom-color: $lighten-green-color;
 			@include breakpoint(970px) {
 				padding-top: 25px;
 				padding-bottom: 25px;
